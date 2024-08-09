@@ -25,9 +25,9 @@ contract WorldContract {
 
     address(chipContractAddress).call(abi.encodeWithSignature("onMine()"));
 
-    // // A dummy operation post calling the chip contract to consume gas
-    // // to trigger out of gas exception, as a simple return does not
-    // for (uint256 i = 0; i < 10; i++) {
+    // A dummy operation post calling the chip contract to consume gas
+    // to trigger out of gas exception, as a simple return does not
+    // for (uint256 i = 0; i < 100; i++) {
     //   continue;
     // }
   }
