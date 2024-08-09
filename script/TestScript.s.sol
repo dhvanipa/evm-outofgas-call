@@ -4,7 +4,7 @@ pragma solidity >=0.8.24;
 import { Script } from "forge-std/Script.sol";
 import { console } from "forge-std/console.sol";
 
-import { OuterContract, InnerContract } from "../src/TestContracts.sol";
+import { WorldContract, ChipContract } from "../src/TestContracts.sol";
 
 contract TestScript is Script {
   function run() external {
@@ -14,16 +14,16 @@ contract TestScript is Script {
     // Start broadcasting transactions from the deployer account
     vm.startBroadcast(deployerPrivateKey);
 
-    InnerContract innerContract = new InnerContract();
-    OuterContract outerContract = new OuterContract(address(innerContract));
+    ChipContract chipContract = new ChipContract();
+    WorldContract worldContract = new WorldContract(address(chipContract));
 
     console.log("Inner contract deployed at");
-    console.logAddress(address(innerContract));
+    console.logAddress(address(chipContract));
 
     console.log("Outer contract deployed at");
-    console.logAddress(address(outerContract));
+    console.logAddress(address(worldContract));
 
-    outerContract.callExpensiveOperation{ gas: 100_000 }();
+    worldContract.mine{ gas: 100_000 }();
 
     vm.stopBroadcast();
   }

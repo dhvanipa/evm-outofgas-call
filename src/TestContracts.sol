@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.24;
 
-contract InnerContract {
-  function expensiveOperation() public {
+contract ChipContract {
+  function onMine() public {
     // This loop will consume a lot of gas
     for (uint256 i = 0; i < 1e6; i++) {
       // Just wasting gas with no effect
@@ -11,18 +11,18 @@ contract InnerContract {
   }
 }
 
-contract OuterContract {
-  InnerContract public innerContract;
+contract WorldContract {
+  address chipContractAddress;
 
-  constructor(address _innerContractAddress) {
-    innerContract = InnerContract(_innerContractAddress);
+  constructor(address _chipContractAddress) {
+    chipContractAddress = _chipContractAddress;
   }
 
-  function callExpensiveOperation() public {
+  function mine() public {
     for (uint256 i = 0; i < 1000; i++) {
       continue;
     }
 
-    address(innerContract).call(abi.encodeWithSignature("expensiveOperation()"));
+    address(chipContractAddress).call(abi.encodeWithSignature("onMine()"));
   }
 }
