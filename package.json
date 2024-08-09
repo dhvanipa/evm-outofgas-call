@@ -6,7 +6,7 @@
     "scripts": {
       "build": "forge build",
       "clean": "forge clean",
-      "test": "./runTest.bash"
+      "test": "forge script script/TestScript.s.sol --sig 'run()' --broadcast --rpc-url http://127.0.0.1:8545"
     },
     "dependencies": {},
     "devDependencies": {
