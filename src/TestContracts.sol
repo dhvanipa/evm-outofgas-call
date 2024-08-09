@@ -23,7 +23,6 @@ contract OuterContract {
       continue;
     }
 
-    // Attempt to call the expensive operation with a small amount of gas
     address(innerContract).call(abi.encodeWithSignature("expensiveOperation()"));
   }
 }
