@@ -28,3 +28,12 @@ As you can see, the inner call ran out of gas, yet the outer call succeeded.
 ## Solutions
 
 If one wants to call an external contract, and revert the tx if it runs out of gas, but not otherwise, than one needs to spend some gas after calling the external contract, as a simple return seems to consume 0 gas.
+
+eg
+```
+for (uint256 i = 0; i < 10; i++) {
+  continue;
+}
+```
+
+I noticed that consuming very little gas, like with a `require(true)` call does not trigger it. A for loop that consumes ~500 gas seems to be the minimum to trigger the revert.
