@@ -4,7 +4,7 @@
 
 ## Steps
 
-0. Clone repo, `pnpm install`. Make sure you have foundry.
+0. Clone repo, `pnpm install`. Make sure you have foundry, and an anvil node running locally on 8545.
 
 1. `pnpm run test`. This will deploy the 2 example contracts in `src/TestContracts.sol`. And then call the outer contracts function.
 
