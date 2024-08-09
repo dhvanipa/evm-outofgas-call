@@ -4,6 +4,8 @@
 
 ## Steps
 
+0. Clone repo, `pnpm install`. Make sure you have foundry.
+
 1. `pnpm run test`. This will deploy the 2 example contracts in `src/TestContracts.sol`. And then call the outer contracts function.
 
 2. forge will print 3 TX hashes from the previous script. The last tx hash is for the function call. `cast run {hash}`to see the trace, which will look like:
