@@ -1,0 +1,1 @@
+forge script script/TestScript.s.sol --sig 'run()' --broadcast --rpc-url http://127.0.0.1:8545
